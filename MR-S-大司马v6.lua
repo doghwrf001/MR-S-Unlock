@@ -1,13 +1,15 @@
 -- CN
---大司马v6全￼源 开源
---破解人：MR
---缝合/改名.....等 请备注/说明来源
---￼看到 \数字,想看清楚写的啥就要￼解码,丢给AI就行￼￼￼￼￼￼￼￼￼
+-- 大司马v6全源 开源
+-- 破解人：MR
+-- http://qins.mc.hi.cn/MR-S
+-- 缝合/改名.....等 请备注/说明来源
+--￼看到 \数字,想看清楚写的啥就要解码,丢给AI就行￼￼￼￼￼￼￼￼￼
 
 
 -- EN
 -- Da Sima v6 Full Source Open Source
 -- Cracker: MR
+-- http://qins.mc.hi.cn/MR-S
 -- If you modify/rename/stitch, please credit/ mention the source
 -- If you see number, decoding is required to read the content clearly-just feed it to Al.
 
