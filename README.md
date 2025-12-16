@@ -1,29 +1,13 @@
 # EN
-### The cracked/open-source Roblox script project jointly completed by MR-S and other collaborating teams/individuals!
+### How to use open source projects?
 
-• MR-S Team  | Official Website: https://qins.mc.hi.cn/MR-S
-
-• HexaGuard Team  | Official Website: https://shoplnk.me/HGteam
-
-• Rviolent Team  | Official Website: no
-
-• HInfinite Team  | Official Website: no
-
-*Not frequently active!*
+• Download the open-source code and upload it to your own repository. Open the file, click "raw" to get the raw page link, then use loadstring(game:HttpGet("Link"))() to launch the script.
 
 
 ----------------------------------
 
 
 # CN
-### 由MR-S与其他合作团队/个人联合完成的破解/开源Roblox脚本项目！
+### 如何使用开源项目？
 
-• MR-S团队 | 官网：https://qins.mc.hi.cn/MR-S
-
-• HexaGuard团队 | 官网：https://shoplnk.me/HGteam
-
-• Rviolent团队 | 官网：无
-
-• H无限团队 | 官网：无
-
-*不经常活跃！*
+• 下载已开源的源码,并上传到自己的仓库中，打开文件点raw后获取raw页面的链接，使用 loadstring(game:HttpGet("链接"))() 即可启动脚本
