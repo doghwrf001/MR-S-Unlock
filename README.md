@@ -1,5 +1,7 @@
 # EN
-### The cracked/open-source Roblox script project jointly completed by MR-S and other collaborating teams/individuals!
+### The cracked/open-source Roblox script project jointly completed by StarryRing and other collaborating teams/individuals!
+
+• StarryRing Team  | Official Website: no
 
 • MR-S Team  | Official Website: https://qins.mc.hi.cn/MR-S
 
@@ -16,7 +18,9 @@
 
 
 # CN
-### 由MR-S与其他合作团队/个人联合完成的破解/开源Roblox脚本项目！
+### 由 StarryRing 与其他合作团队/个人联合完成的破解/开源Roblox脚本项目！
+
+• StarryRing团队 ｜ 官网：无
 
 • MR-S团队 | 官网：https://qins.mc.hi.cn/MR-S
 
