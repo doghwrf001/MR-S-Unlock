@@ -1,4 +1,4 @@
--- 成品代码/Finished code: loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/MR-S-KGuestCheatsJ%20Hub.lua"))()
+-- 成品代码/Finished code: loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/MR-S-Cooki%20Hub.lua"))()
 -- key: http://qins.mc.hi.cn/MR-S
 -- CN [[ MR-S团队破解｜破解时间:2025-12-17｜MR-S官网:http://qins.mc.hi.cn/MR-S |禁倒卖 ]]
 -- EN [[ MR-S Team Crack｜Crack Date: 2025-12-17｜MR-S Official Website: http://qins.mc.hi.cn/MR-S | No Resale ]]
