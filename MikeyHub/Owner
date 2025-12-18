@@ -1,6 +1,22 @@
+-- CN
+-- 开源by：MR
+-- http://qins.mc.hi.cn/MR-S
+-- 功能效果没测试过,自行测试,如有损坏自行修复！
+-- 全源开源，应该没有人闲的没事拿这个圈钱吧？
+-- 最后：请标明来源，谢谢！
+
+
+-- EN
+-- Open Source by: MR
+-- http://qins.mc.hi.cn/MR-S
+-- Functionality hasn't been tested; test it yourself and fix any issues if damaged!
+-- Fully open-source; hopefully no one would bother monetizing this, right?
+-- Lastly: Please credit the source, thank you!
+
+
 local vu1 = identifyexecutor()
 local v2, vu3 = pcall(function()
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/MHExtras/MikeyHubData"))()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/MikeyHub/MikeyHubData"))()
 end)
 if not v2 or (vu3 == nil or vu3 == "") then
     game.Players.LocalPlayer:Kick("Failed to load MikeyHub Info.\nThis is either because the MikeyHub URL is invalid\nOr you\'re attempting to spoof it.")
@@ -1970,7 +1986,7 @@ v34.Premium:AddButton({
                                         spawn(v375)
                                         getgenv().LoaderKey = v365
                                         vu5:Destroy()
-                                        loadstring(game:HttpGet("通用"))()
+                                        loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/MikeyHub/UniversalMikeyHub.lua"))()
                                     end
                                 end
                             },
