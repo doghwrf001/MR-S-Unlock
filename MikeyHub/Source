@@ -156,6 +156,6 @@ v48:AddParagraph("Credits : ", "Made By The MikeyHub Team. (just jakefromjakesfa
 v48:AddButton({
     Name = "Open MikeyHub",
     Callback = function()
-        loadstring(game:HttpGet("主"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/MikeyHub/Owner"))()
     end
 })
