@@ -1,0 +1,2015 @@
+local vu1 = identifyexecutor()
+local v2, vu3 = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/MHExtras/MikeyHubData"))()
+end)
+if not v2 or (vu3 == nil or vu3 == "") then
+    game.Players.LocalPlayer:Kick("Failed to load MikeyHub Info.\nThis is either because the MikeyHub URL is invalid\nOr you\'re attempting to spoof it.")
+end
+local vu4 = game:GetService("Players").LocalPlayer
+local vu5 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local v6 = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+local vu7 = game:GetService("RbxAnalyticsService"):GetClientId()
+local vu8 = vu5:CreateWindow({
+    Title = "MikeyHub Loader " .. tostring(vu3.Version),
+    SubTitle = "- By " .. tostring(vu3.Owner),
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftAlt
+})
+local vu9 = loadstring(game:HttpGet("https://raw.githubusercontent.com/Panda-Repositories/PandaKS_Libraries/main/library/LuaLib/ROBLOX/VAL", true))()
+local vu10 = {
+    Service = "mikeyhubreal",
+    APIToken = "eXYyAXgzOecSk2PP",
+    VigenereKey = tostring({}) .. tostring(function()
+    end) .. tostring(workspace["GetServerTimeNow" .. ("\0"):rep(math.random(2, 32))](workspace) + math.random(os.clock(), 999999999 or os.time())) .. ("\0"):rep(math.random(2, 32) % os.time() + os.clock()),
+    TrueEndpoint = tostring({}) .. tostring(function()
+    end) .. tostring(workspace["GetServerTimeNow" .. ("\0"):rep(math.random(2, 32))](workspace) + math.random(os.clock(), 999999999 or os.time())) .. ("\0"):rep(math.random(2, 32) % os.time() + os.clock()),
+    FalseEndpoint = tostring({}) .. tostring(function()
+    end) .. tostring(workspace["GetServerTimeNow" .. ("\0"):rep(math.random(2, 32))](workspace) + math.random(os.clock(), 999999999 or os.time())) .. ("\0"):rep(math.random(2, 32) % os.time() + os.clock()),
+    Webhook = nil,
+    Debug = false
+}
+local vu12 = setmetatable({}, {
+    __index = function(_, p11)
+        return rawget(vu10, p11)
+    end,
+    __newindex = function(_, _, _)
+        while true do
+        end
+    end,
+    __tostring = function(_)
+        while true do
+        end
+    end
+})
+local vu13 = vu9.SetInternal
+vu9:SetInternal(vu12)
+local function vu14()
+    return game:GetService("MarketplaceService"):UserOwnsGamePassAsync(vu4.UserId, 267790155)
+end
+local vu15 = {}
+local v18 = {
+    __index = function(_, p16)
+        return p16 == "CheckIfMikeyHubOwned" and function(...)
+            local v17 = vu14(...)
+            if v17 ~= true and v17 ~= false then
+                vu4:Kick("Invaild mikeyhub result")
+            end
+            return v17
+        end or rawget(vu15, p16)
+    end,
+    __newindex = function(_, _, _)
+        vu4:Kick("[ MikeyHub AntiCheat ] : Detected tampering with mikeyhub function nerd")
+    end
+}
+local v19 = setmetatable({}, v18)
+vu15.CheckIfMikeyHubOwned = vu14
+local vu20 = v19.CheckIfMikeyHubOwned()
+local vu21 = game:GetService("UserInputService")
+local function vu23()
+    local v22 = vu21:GetPlatform()
+    return v22 ~= Enum.Platform.Android and (v22 ~= Enum.Platform.IOS and "PC" or "IPhone") or "Android"
+end
+local function vu25()
+    local v24 = cloneref(game:GetService("Players"))
+    return tostring(v24.LocalPlayer.UserId)
+end
+local vu26 = ""
+local function vu33()
+    local v27 = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHubInfo/main/BlacklistedPeople/BannedHWIDs/Main"))()
+    local v28 = vu4.Name
+    local v29, v30, v31 = pairs(v27)
+    while true do
+        local v32
+        v31, v32 = v29(v30, v31)
+        if v31 == nil then
+            break
+        end
+        if v31 == v28 or v32.PlayerHWID == vu7 then
+            vu26 = tostring(v32.BanReason)
+            return true
+        end
+    end
+    return false
+end
+local v34 = {
+    KeySys = vu8:AddTab({
+        Title = "| Key System",
+        Icon = "key"
+    }),
+    SettingsInfo = vu8:AddTab({
+        Title = "| Settings & Info",
+        Icon = "alert-circle"
+    }),
+    Premium = vu8:AddTab({
+        Title = "| Premium",
+        Icon = "crown"
+    })
+}
+local _ = vu5.Options
+v34.KeySys:AddParagraph({
+    Title = "Script(s) Status : ",
+    Content = tostring(vu3.Status)
+})
+v34.KeySys:AddSection("Main")
+local vu35 = nil
+v34.KeySys:AddInput("InPutKey", {
+    Title = "Key",
+    Description = "",
+    Default = "",
+    Placeholder = "",
+    Numeric = false,
+    Finished = false,
+    Callback = function(p36)
+        vu35 = p36
+    end
+})
+v34.KeySys:AddButton({
+    Title = "Submit Key",
+    Description = "",
+    Callback = function()
+        if vu3.KeySystemDown ~= false then
+            vu5:Notify({
+                Title = "Error.",
+                Content = "MikeyHub is currently down for a update, you may see the current status / update plans in the discord.",
+                SubContent = "",
+                Duration = 5
+            })
+        else
+            if vu35 and vu35 ~= "" then
+                vu5:Notify({
+                    Title = "Loading...",
+                    Content = "Checking Key, This May Take Awhile.",
+                    SubContent = "",
+                    Duration = 5
+                })
+                local v37 = "MikeyHub"
+                local v38 = vu9
+                local v39 = v38
+                local v40 = v38.ValidateKey
+                local v41 = not (isfile(v37) and readfile(v37)) and vu35
+                if v41 then
+                    v41 = tostring(vu35)
+                end
+                local vu42 = v40(v39, v41)
+                local v43 = vu9:GetInternal().Crypt
+                local v44 = v43:SHA256(vu12.TrueEndpoint, vu12.VigenereKey, nil, nil)
+                local vu45 = v43:EncryptC(v44, vu12.VigenereKey, nil)
+                local vu46 = {}
+                local function vu54(p47, p48)
+                    local v49, v50, v51 = pairs(p48)
+                    local v52 = nil
+                    while true do
+                        local v53
+                        v51, v53 = v49(v50, v51)
+                        if v51 == nil then
+                            break
+                        end
+                        if v53 == p47 then
+                            print(v51, v53, p47)
+                            v52 = true
+                            break
+                        end
+                        if type(p48) == "table" and not vu46[p48] then
+                            vu46[p48] = true
+                            v52 = vu54(p47, p48)
+                            break
+                        end
+                    end
+                    table.clear(vu46)
+                    return v52
+                end
+                if vu54(vu42[tostring(vu35)], {
+                    vu42,
+                    v44,
+                    vu45
+                }) or vu54(vu42.Encrypted, {
+                    vu42
+                }) then
+                    while true do
+                    end
+                else
+                    local v234, _ = pcall(function()
+                        if getmetatable(getfenv(vu9.SetInternal)["getrenv\0"]).__newindex() == vu13 and vu9.SetInternal ~= vu13 then
+                            local v55 = vu9
+                            if getmetatable(getfenv(select(2, v55:SetInternal(vu12)))["getrenv\0"]).__newindex() == vu13 and vu9:SetInternal(vu12) == vu13 then
+                                if vu42 and (vu42.KEY and (vu42.ENV == getfenv(1) and (vu42.Raw == vu12.TrueEndpoint and (vu42.Encrypted == vu45 and (type(vu42.Premium) == "boolean" and (vu9.Validated[1] == vu12.TrueEndpoint and vu9.Validated[2] == true)))))) then
+                                    local vu56 = "https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/SupportedGames"
+                                    local vu57, vu58 = pcall(function()
+                                        return game:HttpGet(vu56)
+                                    end)
+                                    if vu57 then
+                                        local vu59 = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+                                        local vu60 = vu59.Name:gsub("^%[.-%]%s*", ""):gsub("^%b()s*", ""):match("^[^%s]+")
+                                        if vu58:match(game.PlaceId) or vu60 == "Gunfight" then
+                                            local v145, v146 = pcall(function()
+                                                local v61 = vu4.UserId
+                                                if vu20 ~= true or vu33() ~= false then
+                                                    if vu20 ~= false or vu33() ~= false then
+                                                        if vu33() == true then
+                                                            local v62 = "https://discord.com/api/webhooks/"
+                                                            local v63 = {
+                                                                ["Content-Type"] = "application/json"
+                                                            }
+                                                            local v64 = {}
+                                                            local v65 = {}
+                                                            local v66 = {
+                                                                author = {
+                                                                    name = "Blacklisted User Has Executed! - MikeyHub",
+                                                                    icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v61 .. "&width=420&height=420"
+                                                                },
+                                                                description = "User info logged and kicked successfully",
+                                                                type = "rich",
+                                                                color = tonumber(16777215)
+                                                            }
+                                                            local v67 = {}
+                                                            local v68 = {
+                                                                name = "HWID :",
+                                                                value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                                inline = true
+                                                            }
+                                                            local v69 = {
+                                                                name = "Player Username :",
+                                                                value = game:GetService("Players").LocalPlayer.Name,
+                                                                inline = true
+                                                            }
+                                                            local v70 = {
+                                                                name = "Player DisplayName :",
+                                                                value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                                inline = true
+                                                            }
+                                                            local v71 = {
+                                                                name = "Player UserId :",
+                                                                value = game:GetService("Players").LocalPlayer.UserId,
+                                                                inline = true
+                                                            }
+                                                            local v72 = {
+                                                                name = "Player Account Age :",
+                                                                value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                                inline = true
+                                                            }
+                                                            local v73 = {
+                                                                name = "Executor :",
+                                                                value = vu1,
+                                                                inline = true
+                                                            }
+                                                            local v74 = {
+                                                                name = "Using Script :"
+                                                            }
+                                                            local v75 = vu59
+                                                            if v75 then
+                                                                v75 = vu59.Name
+                                                            end
+                                                            v74.value = v75
+                                                            v74.inline = true
+                                                            __set_list(v67, 1, {
+                                                                v68,
+                                                                v69,
+                                                                v70,
+                                                                v71,
+                                                                v72,
+                                                                v73,
+                                                                v74,
+                                                                {
+                                                                    name = "Device :",
+                                                                    value = vu23(),
+                                                                    inline = true
+                                                                },
+                                                                {
+                                                                    name = "PandaAuth HWID :",
+                                                                    value = vu25(),
+                                                                    inline = true
+                                                                }
+                                                            })
+                                                            v66.fields = v67
+                                                            __set_list(v65, 1, {
+                                                                v66
+                                                            })
+                                                            v64.embeds = v65
+                                                            local v76 = game:GetService("HttpService"):JSONEncode(v64);
+                                                            (http_request or request or (HttpPost or syn.request))({
+                                                                Url = v62,
+                                                                Body = v76,
+                                                                Method = "POST",
+                                                                Headers = v63
+                                                            })
+                                                            vu4:Kick("\nYou\'re Banned From MikeyHub \n \nReason: " .. vu26 .. "\n \nIf You Believe This is A Mistake\nContact Mods Within The Server.\nHWID: " .. vu7)
+                                                        end
+                                                    else
+                                                        local v77 = "https://discord.com/api/webhooks/1352548590156779521/jgRq9lOTmLwxN3YzGQ_89Z01INJl41XSeCqYLE4RkRNBtFEEozmiGzXgX_zLzSd8ps-y"
+                                                        local v78 = {
+                                                            ["Content-Type"] = "application/json"
+                                                        }
+                                                        local v79 = {}
+                                                        local v80 = {}
+                                                        local v81 = {
+                                                            author = {
+                                                                name = "User Has Executed! - MikeyHub",
+                                                                icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v61 .. "&width=420&height=420"
+                                                            },
+                                                            description = "User info logged successfully",
+                                                            type = "rich",
+                                                            color = tonumber(16777215)
+                                                        }
+                                                        local v82 = {}
+                                                        local v83 = {
+                                                            name = "HWID :",
+                                                            value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                            inline = true
+                                                        }
+                                                        local v84 = {
+                                                            name = "Player Username :",
+                                                            value = game:GetService("Players").LocalPlayer.Name,
+                                                            inline = true
+                                                        }
+                                                        local v85 = {
+                                                            name = "Player DisplayName :",
+                                                            value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                            inline = true
+                                                        }
+                                                        local v86 = {
+                                                            name = "Player UserId :",
+                                                            value = game:GetService("Players").LocalPlayer.UserId,
+                                                            inline = true
+                                                        }
+                                                        local v87 = {
+                                                            name = "Player Account Age :",
+                                                            value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                            inline = true
+                                                        }
+                                                        local v88 = {
+                                                            name = "Executor :",
+                                                            value = vu1,
+                                                            inline = true
+                                                        }
+                                                        local v89 = {
+                                                            name = "Using Script :"
+                                                        }
+                                                        local v90 = vu59
+                                                        if v90 then
+                                                            v90 = vu59.Name
+                                                        end
+                                                        v89.value = v90
+                                                        v89.inline = true
+                                                        __set_list(v82, 1, {
+                                                            v83,
+                                                            v84,
+                                                            v85,
+                                                            v86,
+                                                            v87,
+                                                            v88,
+                                                            v89,
+                                                            {
+                                                                name = "Device :",
+                                                                value = vu23(),
+                                                                inline = true
+                                                            },
+                                                            {
+                                                                name = "PandaAuth HWID :",
+                                                                value = vu25(),
+                                                                inline = true
+                                                            }
+                                                        })
+                                                        v81.fields = v82
+                                                        __set_list(v80, 1, {
+                                                            v81
+                                                        })
+                                                        v79.embeds = v80
+                                                        local v91 = game:GetService("HttpService"):JSONEncode(v79);
+                                                        (http_request or request or (HttpPost or syn.request))({
+                                                            Url = v77,
+                                                            Body = v91,
+                                                            Method = "POST",
+                                                            Headers = v78
+                                                        })
+                                                    end
+                                                else
+                                                    local v92 = "https://discord.com/api/webhooks/"
+                                                    local v93 = {
+                                                        ["Content-Type"] = "application/json"
+                                                    }
+                                                    local v94 = {}
+                                                    local v95 = {}
+                                                    local v96 = {
+                                                        author = {
+                                                            name = "Whitelisted User Executed - MikeyHub",
+                                                            icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v61 .. "&width=420&height=420"
+                                                        },
+                                                        description = "User info logged successfully",
+                                                        type = "rich",
+                                                        color = tonumber(16777215)
+                                                    }
+                                                    local v97 = {}
+                                                    local v98 = {
+                                                        name = "HWID :",
+                                                        value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                        inline = true
+                                                    }
+                                                    local v99 = {
+                                                        name = "Player Username :",
+                                                        value = game:GetService("Players").LocalPlayer.Name,
+                                                        inline = true
+                                                    }
+                                                    local v100 = {
+                                                        name = "Player DisplayName :",
+                                                        value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                        inline = true
+                                                    }
+                                                    local v101 = {
+                                                        name = "Player UserId :",
+                                                        value = game:GetService("Players").LocalPlayer.UserId,
+                                                        inline = true
+                                                    }
+                                                    local v102 = {
+                                                        name = "Player Account Age :",
+                                                        value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                        inline = true
+                                                    }
+                                                    local v103 = {
+                                                        name = "Executor :",
+                                                        value = vu1,
+                                                        inline = true
+                                                    }
+                                                    local v104 = {
+                                                        name = "Using Script :"
+                                                    }
+                                                    local v105 = vu59
+                                                    if v105 then
+                                                        v105 = vu59.Name
+                                                    end
+                                                    v104.value = v105
+                                                    v104.inline = true
+                                                    __set_list(v97, 1, {
+                                                        v98,
+                                                        v99,
+                                                        v100,
+                                                        v101,
+                                                        v102,
+                                                        v103,
+                                                        v104,
+                                                        {
+                                                            name = "Device :",
+                                                            value = vu23(),
+                                                            inline = true
+                                                        },
+                                                        {
+                                                            name = "PandaAuth HWID :",
+                                                            value = vu25(),
+                                                            inline = true
+                                                        }
+                                                    })
+                                                    v96.fields = v97
+                                                    __set_list(v95, 1, {
+                                                        v96
+                                                    })
+                                                    v94.embeds = v95
+                                                    local v106 = game:GetService("HttpService"):JSONEncode(v94);
+                                                    (http_request or request or (HttpPost or syn.request))({
+                                                        Url = v92,
+                                                        Body = v106,
+                                                        Method = "POST",
+                                                        Headers = v93
+                                                    })
+                                                end
+                                                if vu33() ~= false then
+                                                    print("User Is Blaclisted")
+                                                elseif vu42.Premium then
+                                                    local function vu110(p107)
+                                                        local v108 = 0
+                                                        for v109 = 1, # p107 do
+                                                            v108 = (v108 + string.byte(p107, v109) * v109) % 4294967296
+                                                        end
+                                                        return tostring(v108)
+                                                    end
+                                                    local v111 = tostring(math.random(100000, 999999)) .. tostring(math.random(100000, 999999))
+                                                    local v112 = vu110(v111)
+                                                    local vu113 = game:GetService("Players").LocalPlayer
+                                                    local v114 = {
+                                                        KeySystem = true,
+                                                        Premium = true,
+                                                        Test = v112
+                                                    }
+                                                    local function vu116(p115)
+                                                        return vu110(tostring(p115.KeySystem) .. tostring(p115.Premium) .. tostring(p115.Test))
+                                                    end
+                                                    local vu117 = vu116(v114)
+                                                    local function vu119(p118)
+                                                        vu113:Kick("Detected modification to MikeyHub Data: " .. p118)
+                                                    end
+                                                    local function v121()
+                                                        while true do
+                                                            local v120 = vu116(getgenv().CollectMikeyHubData)
+                                                            if v120 ~= vu117 then
+                                                                print("Initial Hash:", vu117)
+                                                                print("Current Hash:", v120)
+                                                                vu119("Hash mismatch")
+                                                            end
+                                                            wait(1)
+                                                        end
+                                                    end
+                                                    local function v125(p122)
+                                                        local v124 = {
+                                                            __index = p122,
+                                                            __newindex = function(_, p123, _)
+                                                                vu119("Attempted direct modification of " .. tostring(p123))
+                                                                error("Attempt to modify table", 2)
+                                                            end,
+                                                            __metatable = false,
+                                                            __gc = function()
+                                                                vu119("Garbage collection detected")
+                                                            end
+                                                        }
+                                                        return setmetatable({}, v124)
+                                                    end
+                                                    getgenv().CollectMikeyHubData = v125(v114)
+                                                    spawn(v121)
+                                                    getgenv().LoaderKey = v111
+                                                    if vu60 == "Gunfight" then
+                                                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/Gunfight_15514727567"))()
+                                                    else
+                                                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/" .. vu60 .. "_" .. game.PlaceId))()
+                                                    end
+                                                    if vu57 then
+                                                        vu5:Destroy()
+                                                    end
+                                                else
+                                                    local function vu129(p126)
+                                                        local v127 = 0
+                                                        for v128 = 1, # p126 do
+                                                            v127 = (v127 + string.byte(p126, v128) * v128) % 4294967296
+                                                        end
+                                                        return tostring(v127)
+                                                    end
+                                                    local v130 = tostring(math.random(100000, 999999)) .. tostring(math.random(100000, 999999))
+                                                    local v131 = vu129(v130)
+                                                    local vu132 = game:GetService("Players").LocalPlayer
+                                                    local v133 = {
+                                                        KeySystem = true,
+                                                        Premium = false,
+                                                        Test = v131
+                                                    }
+                                                    local function vu135(p134)
+                                                        return vu129(tostring(p134.KeySystem) .. tostring(p134.Premium) .. tostring(p134.Test))
+                                                    end
+                                                    local vu136 = vu135(v133)
+                                                    local function vu138(p137)
+                                                        vu132:Kick("Detected modification to MikeyHub Data: " .. p137)
+                                                    end
+                                                    local function v140()
+                                                        while true do
+                                                            local v139 = vu135(getgenv().CollectMikeyHubData)
+                                                            if v139 ~= vu136 then
+                                                                print("Initial Hash:", vu136)
+                                                                print("Current Hash:", v139)
+                                                                vu138("Hash mismatch")
+                                                            end
+                                                            wait(1)
+                                                        end
+                                                    end
+                                                    local function v144(p141)
+                                                        local v143 = {
+                                                            __index = p141,
+                                                            __newindex = function(_, p142, _)
+                                                                vu138("Attempted direct modification of " .. tostring(p142))
+                                                                error("Attempt to modify table", 2)
+                                                            end,
+                                                            __metatable = false,
+                                                            __gc = function()
+                                                                vu138("Garbage collection detected")
+                                                            end
+                                                        }
+                                                        return setmetatable({}, v143)
+                                                    end
+                                                    getgenv().CollectMikeyHubData = v144(v133)
+                                                    spawn(v140)
+                                                    getgenv().LoaderKey = v130
+                                                    if vu60 == "Gunfight" then
+                                                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/Gunfight_15514727567"))()
+                                                    else
+                                                        loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/" .. vu60 .. "_" .. game.PlaceId))()
+                                                    end
+                                                    if vu57 then
+                                                        vu5:Destroy()
+                                                    end
+                                                end
+                                            end)
+                                            if not v145 then
+                                                local vu147 = tostring(v146):find("attempt to call nil value") and "Loadstring Url Isn\'t Valid, Report This In The MikeyHub Server." or " Please Rejoin And Try Again. Error: " .. tostring(v146)
+                                                vu8:Dialog({
+                                                    Title = "Loadstring Error",
+                                                    Content = vu147,
+                                                    Buttons = {
+                                                        {
+                                                            Title = "Copy Error",
+                                                            Callback = function()
+                                                                setclipboard(tostring(vu147))
+                                                            end
+                                                        },
+                                                        {
+                                                            Title = "Ok",
+                                                            Callback = function()
+                                                            end
+                                                        }
+                                                    }
+                                                })
+                                                print("[MikeyHub LoadString Error]: " .. tostring(v146))
+                                            end
+                                        else
+                                            vu8:Dialog({
+                                                Title = "Game Not Supported!",
+                                                Content = "The Game You\'re Playing Is Not Supported By MikeyHub.\n - Would You Like To Load Up The Universal MikeyHub GUI?",
+                                                Buttons = {
+                                                    {
+                                                        Title = "Yes",
+                                                        Callback = function()
+                                                            local v148 = vu4.UserId
+                                                            if vu20 ~= true or vu33() ~= false then
+                                                                if vu20 ~= false or vu33() ~= false then
+                                                                    if vu33() == true then
+                                                                        local v149 = "https://discord.com/api/webhooks/"
+                                                                        local v150 = {
+                                                                            ["Content-Type"] = "application/json"
+                                                                        }
+                                                                        local v151 = {}
+                                                                        local v152 = {}
+                                                                        local v153 = {
+                                                                            author = {
+                                                                                name = "Blacklisted User Has Executed! - MikeyHub",
+                                                                                icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v148 .. "&width=420&height=420"
+                                                                            },
+                                                                            description = "User info logged and kicked successfully",
+                                                                            type = "rich",
+                                                                            color = tonumber(16777215)
+                                                                        }
+                                                                        local v154 = {}
+                                                                        local v155 = {
+                                                                            name = "HWID :",
+                                                                            value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                                            inline = true
+                                                                        }
+                                                                        local v156 = {
+                                                                            name = "Player Username :",
+                                                                            value = game:GetService("Players").LocalPlayer.Name,
+                                                                            inline = true
+                                                                        }
+                                                                        local v157 = {
+                                                                            name = "Player DisplayName :",
+                                                                            value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                                            inline = true
+                                                                        }
+                                                                        local v158 = {
+                                                                            name = "Player UserId :",
+                                                                            value = game:GetService("Players").LocalPlayer.UserId,
+                                                                            inline = true
+                                                                        }
+                                                                        local v159 = {
+                                                                            name = "Player Account Age :",
+                                                                            value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                                            inline = true
+                                                                        }
+                                                                        local v160 = {
+                                                                            name = "Executor :",
+                                                                            value = vu1,
+                                                                            inline = true
+                                                                        }
+                                                                        local v161 = {
+                                                                            name = "Using Universal In :"
+                                                                        }
+                                                                        local v162 = vu59
+                                                                        if v162 then
+                                                                            v162 = vu59.Name
+                                                                        end
+                                                                        v161.value = v162
+                                                                        v161.inline = true
+                                                                        __set_list(v154, 1, {
+                                                                            v155,
+                                                                            v156,
+                                                                            v157,
+                                                                            v158,
+                                                                            v159,
+                                                                            v160,
+                                                                            v161,
+                                                                            {
+                                                                                name = "Device :",
+                                                                                value = vu23(),
+                                                                                inline = true
+                                                                            },
+                                                                            {
+                                                                                name = "PandaAuth HWID :",
+                                                                                value = vu25(),
+                                                                                inline = true
+                                                                            }
+                                                                        })
+                                                                        v153.fields = v154
+                                                                        __set_list(v152, 1, {
+                                                                            v153
+                                                                        })
+                                                                        v151.embeds = v152
+                                                                        local v163 = game:GetService("HttpService"):JSONEncode(v151);
+                                                                        (http_request or request or (HttpPost or syn.request))({
+                                                                            Url = v149,
+                                                                            Body = v163,
+                                                                            Method = "POST",
+                                                                            Headers = v150
+                                                                        })
+                                                                        vu4:Kick("\nYou\'re Banned From MikeyHub \n \nReason: " .. vu26 .. "\n \nIf You Believe This is A Mistake\nContact Mods Within The Server.\nHWID: " .. vu7)
+                                                                    end
+                                                                else
+                                                                    local v164 = "https://discord.com/api/webhooks/"
+                                                                    local v165 = {
+                                                                        ["Content-Type"] = "application/json"
+                                                                    }
+                                                                    local v166 = {}
+                                                                    local v167 = {}
+                                                                    local v168 = {
+                                                                        author = {
+                                                                            name = "User Has Executed! - MikeyHub",
+                                                                            icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v148 .. "&width=420&height=420"
+                                                                        },
+                                                                        description = "User info logged successfully",
+                                                                        type = "rich",
+                                                                        color = tonumber(16777215)
+                                                                    }
+                                                                    local v169 = {}
+                                                                    local v170 = {
+                                                                        name = "HWID :",
+                                                                        value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                                        inline = true
+                                                                    }
+                                                                    local v171 = {
+                                                                        name = "Player Username :",
+                                                                        value = game:GetService("Players").LocalPlayer.Name,
+                                                                        inline = true
+                                                                    }
+                                                                    local v172 = {
+                                                                        name = "Player DisplayName :",
+                                                                        value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                                        inline = true
+                                                                    }
+                                                                    local v173 = {
+                                                                        name = "Player UserId :",
+                                                                        value = game:GetService("Players").LocalPlayer.UserId,
+                                                                        inline = true
+                                                                    }
+                                                                    local v174 = {
+                                                                        name = "Player Account Age :",
+                                                                        value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                                        inline = true
+                                                                    }
+                                                                    local v175 = {
+                                                                        name = "Executor :",
+                                                                        value = vu1,
+                                                                        inline = true
+                                                                    }
+                                                                    local v176 = {
+                                                                        name = "Using Universal In :"
+                                                                    }
+                                                                    local v177 = vu59
+                                                                    if v177 then
+                                                                        v177 = vu59.Name
+                                                                    end
+                                                                    v176.value = v177
+                                                                    v176.inline = true
+                                                                    __set_list(v169, 1, {
+                                                                        v170,
+                                                                        v171,
+                                                                        v172,
+                                                                        v173,
+                                                                        v174,
+                                                                        v175,
+                                                                        v176,
+                                                                        {
+                                                                            name = "Device :",
+                                                                            value = vu23(),
+                                                                            inline = true
+                                                                        },
+                                                                        {
+                                                                            name = "PandaAuth HWID :",
+                                                                            value = vu25(),
+                                                                            inline = true
+                                                                        }
+                                                                    })
+                                                                    v168.fields = v169
+                                                                    __set_list(v167, 1, {
+                                                                        v168
+                                                                    })
+                                                                    v166.embeds = v167
+                                                                    local v178 = game:GetService("HttpService"):JSONEncode(v166);
+                                                                    (http_request or request or (HttpPost or syn.request))({
+                                                                        Url = v164,
+                                                                        Body = v178,
+                                                                        Method = "POST",
+                                                                        Headers = v165
+                                                                    })
+                                                                end
+                                                            else
+                                                                local v179 = "https://discord.com/api/webhooks/"
+                                                                local v180 = {
+                                                                    ["Content-Type"] = "application/json"
+                                                                }
+                                                                local v181 = {}
+                                                                local v182 = {}
+                                                                local v183 = {
+                                                                    author = {
+                                                                        name = "Whitelisted User Executed - MikeyHub",
+                                                                        icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v148 .. "&width=420&height=420"
+                                                                    },
+                                                                    description = "User info logged successfully",
+                                                                    type = "rich",
+                                                                    color = tonumber(16777215)
+                                                                }
+                                                                local v184 = {}
+                                                                local v185 = {
+                                                                    name = "HWID :",
+                                                                    value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                                    inline = true
+                                                                }
+                                                                local v186 = {
+                                                                    name = "Player Username :",
+                                                                    value = game:GetService("Players").LocalPlayer.Name,
+                                                                    inline = true
+                                                                }
+                                                                local v187 = {
+                                                                    name = "Player DisplayName :",
+                                                                    value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                                    inline = true
+                                                                }
+                                                                local v188 = {
+                                                                    name = "Player UserId :",
+                                                                    value = game:GetService("Players").LocalPlayer.UserId,
+                                                                    inline = true
+                                                                }
+                                                                local v189 = {
+                                                                    name = "Player Account Age :",
+                                                                    value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                                    inline = true
+                                                                }
+                                                                local v190 = {
+                                                                    name = "Executor :",
+                                                                    value = vu1,
+                                                                    inline = true
+                                                                }
+                                                                local v191 = {
+                                                                    name = "Using Universal In :"
+                                                                }
+                                                                local v192 = vu59
+                                                                if v192 then
+                                                                    v192 = vu59.Name
+                                                                end
+                                                                v191.value = v192
+                                                                v191.inline = true
+                                                                __set_list(v184, 1, {
+                                                                    v185,
+                                                                    v186,
+                                                                    v187,
+                                                                    v188,
+                                                                    v189,
+                                                                    v190,
+                                                                    v191,
+                                                                    {
+                                                                        name = "Device :",
+                                                                        value = vu23(),
+                                                                        inline = true
+                                                                    },
+                                                                    {
+                                                                        name = "PandaAuth HWID :",
+                                                                        value = vu25(),
+                                                                        inline = true
+                                                                    }
+                                                                })
+                                                                v183.fields = v184
+                                                                __set_list(v182, 1, {
+                                                                    v183
+                                                                })
+                                                                v181.embeds = v182
+                                                                local v193 = game:GetService("HttpService"):JSONEncode(v181);
+                                                                (http_request or request or (HttpPost or syn.request))({
+                                                                    Url = v179,
+                                                                    Body = v193,
+                                                                    Method = "POST",
+                                                                    Headers = v180
+                                                                })
+                                                            end
+                                                            vu5:Destroy()
+                                                            if vu33() ~= false then
+                                                                print("User Is Blaclisted")
+                                                            elseif vu42.Premium then
+                                                                local function vu197(p194)
+                                                                    local v195 = 0
+                                                                    for v196 = 1, # p194 do
+                                                                        v195 = (v195 + string.byte(p194, v196) * v196) % 4294967296
+                                                                    end
+                                                                    return tostring(v195)
+                                                                end
+                                                                local v198 = tostring(math.random(100000, 999999)) .. tostring(math.random(100000, 999999))
+                                                                local v199 = vu197(v198)
+                                                                local vu200 = game:GetService("Players").LocalPlayer
+                                                                local v201 = {
+                                                                    KeySystem = true,
+                                                                    Premium = true,
+                                                                    Test = v199
+                                                                }
+                                                                local function vu203(p202)
+                                                                    return vu197(tostring(p202.KeySystem) .. tostring(p202.Premium) .. tostring(p202.Test))
+                                                                end
+                                                                local vu204 = vu203(v201)
+                                                                local function vu206(p205)
+                                                                    vu200:Kick("Detected modification to MikeyHub Data: " .. p205)
+                                                                end
+                                                                local function v208()
+                                                                    while true do
+                                                                        local v207 = vu203(getgenv().CollectMikeyHubData)
+                                                                        if v207 ~= vu204 then
+                                                                            print("Initial Hash:", vu204)
+                                                                            print("Current Hash:", v207)
+                                                                            vu206("Hash mismatch")
+                                                                        end
+                                                                        wait(1)
+                                                                    end
+                                                                end
+                                                                local function v212(p209)
+                                                                    local v211 = {
+                                                                        __index = p209,
+                                                                        __newindex = function(_, p210, _)
+                                                                            vu206("Attempted direct modification of " .. tostring(p210))
+                                                                            error("Attempt to modify table", 2)
+                                                                        end,
+                                                                        __metatable = false,
+                                                                        __gc = function()
+                                                                            vu206("Garbage collection detected")
+                                                                        end
+                                                                    }
+                                                                    return setmetatable({}, v211)
+                                                                end
+                                                                getgenv().CollectMikeyHubData = v212(v201)
+                                                                spawn(v208)
+                                                                getgenv().LoaderKey = v198
+                                                                loadstring(game:HttpGet("通用"))()
+                                                            else
+                                                                local function vu216(p213)
+                                                                    local v214 = 0
+                                                                    for v215 = 1, # p213 do
+                                                                        v214 = (v214 + string.byte(p213, v215) * v215) % 4294967296
+                                                                    end
+                                                                    return tostring(v214)
+                                                                end
+                                                                local v217 = tostring(math.random(100000, 999999)) .. tostring(math.random(100000, 999999))
+                                                                local v218 = vu216(v217)
+                                                                local vu219 = game:GetService("Players").LocalPlayer
+                                                                local v220 = {
+                                                                    KeySystem = true,
+                                                                    Premium = false,
+                                                                    Test = v218
+                                                                }
+                                                                local function vu222(p221)
+                                                                    return vu216(tostring(p221.KeySystem) .. tostring(p221.Premium) .. tostring(p221.Test))
+                                                                end
+                                                                local vu223 = vu222(v220)
+                                                                local function vu225(p224)
+                                                                    vu219:Kick("Detected modification to MikeyHub Data: " .. p224)
+                                                                end
+                                                                local function v227()
+                                                                    while true do
+                                                                        local v226 = vu222(getgenv().CollectMikeyHubData)
+                                                                        if v226 ~= vu223 then
+                                                                            print("Initial Hash:", vu223)
+                                                                            print("Current Hash:", v226)
+                                                                            vu225("Hash mismatch")
+                                                                        end
+                                                                        wait(1)
+                                                                    end
+                                                                end
+                                                                local function v231(p228)
+                                                                    local v230 = {
+                                                                        __index = p228,
+                                                                        __newindex = function(_, p229, _)
+                                                                            vu225("Attempted direct modification of " .. tostring(p229))
+                                                                            error("Attempt to modify table", 2)
+                                                                        end,
+                                                                        __metatable = false,
+                                                                        __gc = function()
+                                                                            vu225("Garbage collection detected")
+                                                                        end
+                                                                    }
+                                                                    return setmetatable({}, v230)
+                                                                end
+                                                                getgenv().CollectMikeyHubData = v231(v220)
+                                                                spawn(v227)
+                                                                getgenv().LoaderKey = v217
+                                                                loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/UniversalMikeyHub"))()
+                                                            end
+                                                        end
+                                                    },
+                                                    {
+                                                        Title = "No",
+                                                        Callback = function()
+                                                        end
+                                                    }
+                                                }
+                                            })
+                                        end
+                                    else
+                                        vu8:Dialog({
+                                            Title = "SupportedGames URL Error",
+                                            Content = vu58 .. "\nPlease Report This In MikeyHub Server",
+                                            Buttons = {
+                                                {
+                                                    Title = "Copy Error",
+                                                    Callback = function()
+                                                        setclipboard(tostring(vu58))
+                                                    end
+                                                },
+                                                {
+                                                    Title = "Ok",
+                                                    Callback = function()
+                                                    end
+                                                }
+                                            }
+                                        })
+                                        print("[ MikeyHub ]: " .. vu58)
+                                    end
+                                else
+                                    if not vu42 or (vu42.Raw ~= vu12.FalseEndpoint or (vu9.Validated[1] ~= vu12.FalseEndpoint or vu9.Validated[2] ~= false)) then
+                                        while true do
+                                        end
+                                    end
+                                    local vu232 = vu35
+                                    local v233
+                                    if vu35:find("^Winnable_") then
+                                        vu232 = vu35:gsub("^Winnable_", "")
+                                        v233 = "Winnable was added in front of your key, please remove it (or click \"Copy Fixed Key\")"
+                                    elseif vu35:find("%s$") then
+                                        vu232 = vu35:match("^(.-)%s*$")
+                                        v233 = "Space after key, remove the space from the key"
+                                    elseif vu35:find("[/\\%[%]:;]") then
+                                        vu232 = vu35:gsub("[/\\%[%]:;]", "")
+                                        v233 = "Special letter added in key, please remove it (or click \"Copy Fixed Key\")"
+                                    else
+                                        v233 = "No reason found, your key is very incorrect, make sure it is the right key given from the website."
+                                    end
+                                    vu8:Dialog({
+                                        Title = "The key was incorrect.",
+                                        Content = "Check for any typos.\n \nKey you inputted: " .. vu35 .. "\n \nReason: " .. v233,
+                                        Buttons = {
+                                            {
+                                                Title = "Copy Fixed Key",
+                                                Callback = function()
+                                                    setclipboard(vu232)
+                                                    vu5:Notify({
+                                                        Title = "Success! (Read Me)",
+                                                        Content = "Successfully copied key without mistake (space after key, special letter in key, etc) to your clipboard.",
+                                                        SubContent = "Paste the copied key into input.",
+                                                        Duration = 5
+                                                    })
+                                                end
+                                            },
+                                            {
+                                                Title = "Ok",
+                                                Callback = function()
+                                                end
+                                            }
+                                        }
+                                    })
+                                end
+                                return
+                            end
+                        end
+                        while true do
+                        end
+                    end)
+                    if v234 then
+                        return
+                    else
+                        while true do
+                        end
+                    end
+                end
+            end
+            vu8:Dialog({
+                Title = "Error.",
+                Content = "Please input a key, press \"Copy Key Link\" to generate a key link.",
+                Buttons = {
+                    {
+                        Title = "Copy Key Link",
+                        Callback = function()
+                            local v235 = vu9:GetKey()
+                            setclipboard(v235)
+                            vu5:Notify({
+                                Title = "Copied Key Link.",
+                                Content = "Url link is now on your clipboard.",
+                                SubContent = "",
+                                Duration = 10
+                            })
+                        end
+                    },
+                    {
+                        Title = "Ok",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+    end
+})
+v34.KeySys:AddButton({
+    Title = "Generate Key Link",
+    Description = "",
+    Callback = function()
+        local v236 = vu9:GetKey()
+        setclipboard(v236)
+        vu8:Dialog({
+            Title = "Success!",
+            Content = "Successfully copied key into your clipboard\nInput the copied key link url into your browser.",
+            Buttons = {
+                {
+                    Title = "Copy Key Link",
+                    Callback = function()
+                        local v237 = vu9:GetKey()
+                        setclipboard(v237)
+                        vu5:Notify({
+                            Title = "Copied Key Link.",
+                            Content = "Url link is now on your clipboard.",
+                            SubContent = "",
+                            Duration = 10
+                        })
+                    end
+                },
+                {
+                    Title = "Ok",
+                    Callback = function()
+                    end
+                }
+            }
+        })
+    end
+})
+v34.KeySys:AddParagraph({
+    Title = "How To Get Key:",
+    Content = "First, press \"Generate Key Link\", enter the generated key into your browser URL, complete the checkpoints to receive your key, input the key into the \"Key\" textbox, and press \"Submit Key\"; if you encounter any problems, please contact us via our Discord server in the \"script-help\" channel for further assistance from our moderators. (Discord link is located in the \"info\" tab.)"
+})
+v34.KeySys:AddParagraph({
+    Title = "Note:",
+    Content = "IF you encounter any problems related to scripts, such as being kicked or errors, look inside the \"Settings & Info\" tab and scroll down to debuggers or it could be in settings, you can also find useful settings such as \" No PopUps\" or being able to change the theme."
+})
+v34.SettingsInfo:AddParagraph({
+    Title = "MikeyHub TOS : ",
+    Content = tostring(vu3.TOS)
+})
+v34.SettingsInfo:AddSection("Settings")
+v34.SettingsInfo:AddParagraph({
+    Title = "Reminder : ",
+    Content = "Make sure to save your settings by scrolling and saving your config and setting it as autoload."
+})
+v34.SettingsInfo:AddToggle("PopupToggle", {
+    Title = "No PopUps",
+    Description = "Disables/Enables the \"Are You Enjoying MikeyHub\" & \"Join Discord\" Popups.",
+    Default = false,
+    Callback = function(p238)
+        getgenv().NoPopups = p238
+    end
+})
+v34.SettingsInfo:AddDropdown("ThemeSelec", {
+    Title = "Theme",
+    Description = "Changes the theme of the UI",
+    Values = {
+        "Dark",
+        "Amethyst",
+        "Aqua",
+        "Darker",
+        "Light",
+        "Rose"
+    },
+    Multi = false,
+    Default = "Dark"
+}):OnChanged(function(p239)
+    getgenv().Theme = tostring(p239)
+    vu5:SetTheme(p239)
+end)
+v34.SettingsInfo:AddToggle("BlurTog", {
+    Title = "Blur",
+    Description = "Disables/Enables UI blur, turn this off if you have problems with blur.",
+    Default = false,
+    Callback = function(p240)
+        getgenv().Blur = p240
+        vu5:ToggleAcrylic(p240)
+    end
+})
+v34.SettingsInfo:AddKeybind("ToggleTog", {
+    Title = "Minimze Key",
+    Description = "The key to open/close your UI",
+    Mode = "Toggle",
+    Default = "LeftAlt",
+    ChangedCallback = function(p241)
+        vu5.MinimizeKey = p241
+        getgenv().MinizeKey = p241
+    end
+})
+local _ = getgenv().Theme ~= "Dark" or (getgenv().Blur ~= "false" or getgenv().MinizeKey ~= nil)
+v34.SettingsInfo:AddSection("Information")
+v34.SettingsInfo:AddButton({
+    Title = "Copy MR-S Link",
+    Description = "mmmmmm",
+    Callback = function()
+        setclipboard("http://qins.mc.hi.cn/MR-S")
+    end
+})
+v34.SettingsInfo:AddButton({
+    Title = "by:MR-S",
+    Description = "mmmmm",
+    Callback = function()
+        setclipboard("http://qins.mc.hi.cn/MR-S")
+    end
+})
+v34.SettingsInfo:AddButton({
+    Title = "Copy HWID",
+    Description = "Copies your HWID to your clipboard.",
+    Callback = function()
+        setclipboard(tostring(vu7))
+    end
+})
+v34.SettingsInfo:AddParagraph({
+    Title = "Username : " .. vu4.Name
+})
+v34.SettingsInfo:AddParagraph({
+    Title = "UserID : " .. vu4.UserId
+})
+v34.SettingsInfo:AddParagraph({
+    Title = "HWID : " .. tostring(vu7)
+})
+v34.SettingsInfo:AddSection("Debugger")
+v34.SettingsInfo:AddButton({
+    Title = "Bypass Adonis Anticheat",
+    Description = "Run this if you\'re getting kicked when using the dsba script.",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
+    end
+})
+v34.Premium:AddSection("Premium GUI")
+v34.Premium:AddButton({
+    Title = "Load Premium GUI",
+    Description = "Loads MikeyHub premium GUI",
+    Callback = function()
+        if vu20 ~= true then
+            vu8:Dialog({
+                Title = "Buy MikeyHub.",
+                Content = "You must own MikeyHub in order to use this.\nJoin Our Discord To Buy MikeyHub Or Press Copy Link For Gamepass Link.",
+                Buttons = {
+                    {
+                        Title = "Copy Link",
+                        Callback = function()
+                            setclipboard("https://www.roblox.com/game-pass/267790155/MikeyHub-Premium-3-4")
+                            vu5:Notify({
+                                Title = "Copied Gamepass Url To Clipboard.",
+                                Content = "Paste the url into your browser.",
+                                SubContent = "Join Our Discord For Customer Role",
+                                Duration = 5
+                            })
+                        end
+                    },
+                    {
+                        Title = "Ok",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        else
+            local vu242 = "支持游戏"
+            local vu243, vu244 = pcall(function()
+                return game:HttpGet(vu242)
+            end)
+            if vu243 then
+                local vu245 = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+                local vu246 = vu245.Name:gsub("^%[.-%]%s*", ""):gsub("^%b()s*", ""):match("^[^%s]+")
+                if vu244:match(game.PlaceId) or vu246 == "Gunfight" then
+                    local v312, v313 = pcall(function()
+                        local v247 = vu4.UserId
+                        if vu20 ~= true or vu33() ~= false then
+                            if vu20 ~= false or vu33() ~= false then
+                                if vu33() == true then
+                                    local v248 = "https://discord.com/api/webhooks/"
+                                    local v249 = {
+                                        ["Content-Type"] = "application/json"
+                                    }
+                                    local v250 = {}
+                                    local v251 = {}
+                                    local v252 = {
+                                        author = {
+                                            name = "Blacklisted User Has Executed! - MikeyHub",
+                                            icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v247 .. "&width=420&height=420"
+                                        },
+                                        description = "User info logged and kicked successfully",
+                                        type = "rich",
+                                        color = tonumber(16777215)
+                                    }
+                                    local v253 = {}
+                                    local v254 = {
+                                        name = "HWID :",
+                                        value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                        inline = true
+                                    }
+                                    local v255 = {
+                                        name = "Player Username :",
+                                        value = game:GetService("Players").LocalPlayer.Name,
+                                        inline = true
+                                    }
+                                    local v256 = {
+                                        name = "Player DisplayName :",
+                                        value = game:GetService("Players").LocalPlayer.DisplayName,
+                                        inline = true
+                                    }
+                                    local v257 = {
+                                        name = "Player UserId :",
+                                        value = game:GetService("Players").LocalPlayer.UserId,
+                                        inline = true
+                                    }
+                                    local v258 = {
+                                        name = "Player Account Age :",
+                                        value = game:GetService("Players").LocalPlayer.AccountAge,
+                                        inline = true
+                                    }
+                                    local v259 = {
+                                        name = "Executor :",
+                                        value = vu1,
+                                        inline = true
+                                    }
+                                    local v260 = {
+                                        name = "Using Script :"
+                                    }
+                                    local v261 = vu245
+                                    if v261 then
+                                        v261 = vu245.Name
+                                    end
+                                    v260.value = v261
+                                    v260.inline = true
+                                    __set_list(v253, 1, {
+                                        v254,
+                                        v255,
+                                        v256,
+                                        v257,
+                                        v258,
+                                        v259,
+                                        v260,
+                                        {
+                                            name = "Device :",
+                                            value = vu23(),
+                                            inline = true
+                                        },
+                                        {
+                                            name = "PandaAuth HWID :",
+                                            value = vu25(),
+                                            inline = true
+                                        }
+                                    })
+                                    v252.fields = v253
+                                    __set_list(v251, 1, {
+                                        v252
+                                    })
+                                    v250.embeds = v251
+                                    local v262 = game:GetService("HttpService"):JSONEncode(v250);
+                                    (http_request or request or (HttpPost or syn.request))({
+                                        Url = v248,
+                                        Body = v262,
+                                        Method = "POST",
+                                        Headers = v249
+                                    })
+                                    vu4:Kick("\nYou\'re Banned From MikeyHub \n \nReason: " .. vu26 .. "\n \nIf You Believe This is A Mistake\nContact Mods Within The Server.\nHWID: " .. vu7)
+                                end
+                            else
+                                local v263 = "https://discord.com/api/webhooks/"
+                                local v264 = {
+                                    ["Content-Type"] = "application/json"
+                                }
+                                local v265 = {}
+                                local v266 = {}
+                                local v267 = {
+                                    author = {
+                                        name = "User Has Executed! - MikeyHub (PROBLEM)",
+                                        icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v247 .. "&width=420&height=420"
+                                    },
+                                    description = "User info logged successfully",
+                                    type = "rich",
+                                    color = tonumber(16777215)
+                                }
+                                local v268 = {}
+                                local v269 = {
+                                    name = "HWID :",
+                                    value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                    inline = true
+                                }
+                                local v270 = {
+                                    name = "Player Username :",
+                                    value = game:GetService("Players").LocalPlayer.Name,
+                                    inline = true
+                                }
+                                local v271 = {
+                                    name = "Player DisplayName :",
+                                    value = game:GetService("Players").LocalPlayer.DisplayName,
+                                    inline = true
+                                }
+                                local v272 = {
+                                    name = "Player UserId :",
+                                    value = game:GetService("Players").LocalPlayer.UserId,
+                                    inline = true
+                                }
+                                local v273 = {
+                                    name = "Player Account Age :",
+                                    value = game:GetService("Players").LocalPlayer.AccountAge,
+                                    inline = true
+                                }
+                                local v274 = {
+                                    name = "Executor :",
+                                    value = vu1,
+                                    inline = true
+                                }
+                                local v275 = {
+                                    name = "Using Script :"
+                                }
+                                local v276 = vu245
+                                if v276 then
+                                    v276 = vu245.Name
+                                end
+                                v275.value = v276
+                                v275.inline = true
+                                __set_list(v268, 1, {
+                                    v269,
+                                    v270,
+                                    v271,
+                                    v272,
+                                    v273,
+                                    v274,
+                                    v275,
+                                    {
+                                        name = "Device :",
+                                        value = vu23(),
+                                        inline = true
+                                    },
+                                    {
+                                        name = "PandaAuth HWID :",
+                                        value = vu25(),
+                                        inline = true
+                                    }
+                                })
+                                v267.fields = v268
+                                __set_list(v266, 1, {
+                                    v267
+                                })
+                                v265.embeds = v266
+                                local v277 = game:GetService("HttpService"):JSONEncode(v265);
+                                (http_request or request or (HttpPost or syn.request))({
+                                    Url = v263,
+                                    Body = v277,
+                                    Method = "POST",
+                                    Headers = v264
+                                })
+                            end
+                        else
+                            local v278 = "discord.com-webhooks"
+                            local v279 = {
+                                ["Content-Type"] = "application/json"
+                            }
+                            local v280 = {}
+                            local v281 = {}
+                            local v282 = {
+                                author = {
+                                    name = "Whitelisted User Executed - MikeyHub",
+                                    icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v247 .. "&width=420&height=420"
+                                },
+                                description = "User info logged successfully",
+                                type = "rich",
+                                color = tonumber(16777215)
+                            }
+                            local v283 = {}
+                            local v284 = {
+                                name = "HWID :",
+                                value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                inline = true
+                            }
+                            local v285 = {
+                                name = "Player Username :",
+                                value = game:GetService("Players").LocalPlayer.Name,
+                                inline = true
+                            }
+                            local v286 = {
+                                name = "Player DisplayName :",
+                                value = game:GetService("Players").LocalPlayer.DisplayName,
+                                inline = true
+                            }
+                            local v287 = {
+                                name = "Player UserId :",
+                                value = game:GetService("Players").LocalPlayer.UserId,
+                                inline = true
+                            }
+                            local v288 = {
+                                name = "Player Account Age :",
+                                value = game:GetService("Players").LocalPlayer.AccountAge,
+                                inline = true
+                            }
+                            local v289 = {
+                                name = "Executor :",
+                                value = vu1,
+                                inline = true
+                            }
+                            local v290 = {
+                                name = "Using Script :"
+                            }
+                            local v291 = vu245
+                            if v291 then
+                                v291 = vu245.Name
+                            end
+                            v290.value = v291
+                            v290.inline = true
+                            __set_list(v283, 1, {
+                                v284,
+                                v285,
+                                v286,
+                                v287,
+                                v288,
+                                v289,
+                                v290,
+                                {
+                                    name = "Device :",
+                                    value = vu23(),
+                                    inline = true
+                                },
+                                {
+                                    name = "PandaAuth HWID :",
+                                    value = vu25(),
+                                    inline = true
+                                }
+                            })
+                            v282.fields = v283
+                            __set_list(v281, 1, {
+                                v282
+                            })
+                            v280.embeds = v281
+                            local v292 = game:GetService("HttpService"):JSONEncode(v280);
+                            (http_request or request or (HttpPost or syn.request))({
+                                Url = v278,
+                                Body = v292,
+                                Method = "POST",
+                                Headers = v279
+                            })
+                        end
+                        if vu33() ~= false then
+                            print("User Is Blacklisted")
+                        else
+                            local function vu296(p293)
+                                local v294 = 0
+                                for v295 = 1, # p293 do
+                                    v294 = (v294 + string.byte(p293, v295) * v295) % 4294967296
+                                end
+                                return tostring(v294)
+                            end
+                            local v297 = tostring(math.random(100000, 999999)) .. tostring(math.random(100000, 999999))
+                            local v298 = vu296(v297)
+                            local vu299 = game:GetService("Players").LocalPlayer
+                            local v300 = {
+                                KeySystem = true,
+                                Premium = true,
+                                Test = v298
+                            }
+                            local function vu302(p301)
+                                return vu296(tostring(p301.KeySystem) .. tostring(p301.Premium) .. tostring(p301.Test))
+                            end
+                            local vu303 = vu302(v300)
+                            local function vu305(p304)
+                                vu299:Kick("Detected modification to MikeyHub Data: " .. p304)
+                            end
+                            local function v307()
+                                while true do
+                                    local v306 = vu302(getgenv().CollectMikeyHubData)
+                                    if v306 ~= vu303 then
+                                        print("Initial Hash:", vu303)
+                                        print("Current Hash:", v306)
+                                        vu305("Hash mismatch")
+                                    end
+                                    wait(1)
+                                end
+                            end
+                            local function v311(p308)
+                                local v310 = {
+                                    __index = p308,
+                                    __newindex = function(_, p309, _)
+                                        vu305("Attempted direct modification of " .. tostring(p309))
+                                        error("Attempt to modify table", 2)
+                                    end,
+                                    __metatable = false,
+                                    __gc = function()
+                                        vu305("Garbage collection detected")
+                                    end
+                                }
+                                return setmetatable({}, v310)
+                            end
+                            getgenv().CollectMikeyHubData = v311(v300)
+                            spawn(v307)
+                            getgenv().LoaderKey = v297
+                            if vu246 == "Gunfight" then
+                                loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/Gunfight_15514727567"))()
+                            else
+                                loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptHub/MikeyHub-V2/main/Loader/Games/" .. vu246 .. "_" .. game.PlaceId))()
+                            end
+                            if vu243 then
+                                vu5:Destroy()
+                            end
+                        end
+                    end)
+                    if not v312 then
+                        local vu314 = tostring(v313):find("attempt to call nil value") and "Loadstring Url Isn\'t Valid, Report This In The MikeyHub Server." or " Please Rejoin And Try Again. Error: " .. tostring(v313)
+                        vu8:Dialog({
+                            Title = "Loadstring Error",
+                            Content = vu314,
+                            Buttons = {
+                                {
+                                    Title = "Copy Error",
+                                    Callback = function()
+                                        setclipboard(tostring(vu314))
+                                    end
+                                },
+                                {
+                                    Title = "Ok",
+                                    Callback = function()
+                                    end
+                                }
+                            }
+                        })
+                        print("[MikeyHub LoadString Error]: " .. tostring(v313))
+                    end
+                else
+                    vu8:Dialog({
+                        Title = "Game Not Supported!",
+                        Content = "The Game You\'re Playing Is Not Supported By MikeyHub.\n - Would You Like To Load Up The Universal MikeyHub GUI?",
+                        Buttons = {
+                            {
+                                Title = "Yes",
+                                Callback = function()
+                                    local v315 = vu4.UserId
+                                    if vu20 ~= true or vu33() ~= false then
+                                        if vu20 ~= false or vu33() ~= false then
+                                            if vu33() == true then
+                                                local v316 = "discord.com-webhooks"
+                                                local v317 = {
+                                                    ["Content-Type"] = "application/json"
+                                                }
+                                                local v318 = {}
+                                                local v319 = {}
+                                                local v320 = {
+                                                    author = {
+                                                        name = "Blacklisted User Has Executed! - MikeyHub",
+                                                        icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v315 .. "&width=420&height=420"
+                                                    },
+                                                    description = "User info logged and kicked successfully",
+                                                    type = "rich",
+                                                    color = tonumber(16777215)
+                                                }
+                                                local v321 = {}
+                                                local v322 = {
+                                                    name = "HWID :",
+                                                    value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                    inline = true
+                                                }
+                                                local v323 = {
+                                                    name = "Player Username :",
+                                                    value = game:GetService("Players").LocalPlayer.Name,
+                                                    inline = true
+                                                }
+                                                local v324 = {
+                                                    name = "Player DisplayName :",
+                                                    value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                    inline = true
+                                                }
+                                                local v325 = {
+                                                    name = "Player UserId :",
+                                                    value = game:GetService("Players").LocalPlayer.UserId,
+                                                    inline = true
+                                                }
+                                                local v326 = {
+                                                    name = "Player Account Age :",
+                                                    value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                    inline = true
+                                                }
+                                                local v327 = {
+                                                    name = "Executor :",
+                                                    value = vu1,
+                                                    inline = true
+                                                }
+                                                local v328 = {
+                                                    name = "Using Universal In :"
+                                                }
+                                                local v329 = vu245
+                                                if v329 then
+                                                    v329 = vu245.Name
+                                                end
+                                                v328.value = v329
+                                                v328.inline = true
+                                                __set_list(v321, 1, {
+                                                    v322,
+                                                    v323,
+                                                    v324,
+                                                    v325,
+                                                    v326,
+                                                    v327,
+                                                    v328,
+                                                    {
+                                                        name = "Device :",
+                                                        value = vu23(),
+                                                        inline = true
+                                                    },
+                                                    {
+                                                        name = "PandaAuth HWID :",
+                                                        value = vu25(),
+                                                        inline = true
+                                                    }
+                                                })
+                                                v320.fields = v321
+                                                __set_list(v319, 1, {
+                                                    v320
+                                                })
+                                                v318.embeds = v319
+                                                local v330 = game:GetService("HttpService"):JSONEncode(v318);
+                                                (http_request or request or (HttpPost or syn.request))({
+                                                    Url = v316,
+                                                    Body = v330,
+                                                    Method = "POST",
+                                                    Headers = v317
+                                                })
+                                                vu4:Kick("\nYou\'re Banned From MikeyHub \n \nReason: " .. vu26 .. "\n \nIf You Believe This is A Mistake\nContact Mods Within The Server.\nHWID: " .. vu7)
+                                            end
+                                        else
+                                            local v331 = "discord.com-webhooks"
+                                            local v332 = {
+                                                ["Content-Type"] = "application/json"
+                                            }
+                                            local v333 = {}
+                                            local v334 = {}
+                                            local v335 = {
+                                                author = {
+                                                    name = "User Has Executed! - MikeyHub",
+                                                    icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v315 .. "&width=420&height=420"
+                                                },
+                                                description = "User info logged successfully",
+                                                type = "rich",
+                                                color = tonumber(16777215)
+                                            }
+                                            local v336 = {}
+                                            local v337 = {
+                                                name = "HWID :",
+                                                value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                                inline = true
+                                            }
+                                            local v338 = {
+                                                name = "Player Username :",
+                                                value = game:GetService("Players").LocalPlayer.Name,
+                                                inline = true
+                                            }
+                                            local v339 = {
+                                                name = "Player DisplayName :",
+                                                value = game:GetService("Players").LocalPlayer.DisplayName,
+                                                inline = true
+                                            }
+                                            local v340 = {
+                                                name = "Player UserId :",
+                                                value = game:GetService("Players").LocalPlayer.UserId,
+                                                inline = true
+                                            }
+                                            local v341 = {
+                                                name = "Player Account Age :",
+                                                value = game:GetService("Players").LocalPlayer.AccountAge,
+                                                inline = true
+                                            }
+                                            local v342 = {
+                                                name = "Executor :",
+                                                value = vu1,
+                                                inline = true
+                                            }
+                                            local v343 = {
+                                                name = "Using Universal In :"
+                                            }
+                                            local v344 = vu245
+                                            if v344 then
+                                                v344 = vu245.Name
+                                            end
+                                            v343.value = v344
+                                            v343.inline = true
+                                            __set_list(v336, 1, {
+                                                v337,
+                                                v338,
+                                                v339,
+                                                v340,
+                                                v341,
+                                                v342,
+                                                v343,
+                                                {
+                                                    name = "Device :",
+                                                    value = vu23(),
+                                                    inline = true
+                                                },
+                                                {
+                                                    name = "PandaAuth HWID :",
+                                                    value = vu25(),
+                                                    inline = true
+                                                }
+                                            })
+                                            v335.fields = v336
+                                            __set_list(v334, 1, {
+                                                v335
+                                            })
+                                            v333.embeds = v334
+                                            local v345 = game:GetService("HttpService"):JSONEncode(v333);
+                                            (http_request or request or (HttpPost or syn.request))({
+                                                Url = v331,
+                                                Body = v345,
+                                                Method = "POST",
+                                                Headers = v332
+                                            })
+                                        end
+                                    else
+                                        local v346 = "discord.com-webhooks"
+                                        local v347 = {
+                                            ["Content-Type"] = "application/json"
+                                        }
+                                        local v348 = {}
+                                        local v349 = {}
+                                        local v350 = {
+                                            author = {
+                                                name = "Whitelisted User Executed - MikeyHub",
+                                                icon_url = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. v315 .. "&width=420&height=420"
+                                            },
+                                            description = "User info logged successfully",
+                                            type = "rich",
+                                            color = tonumber(16777215)
+                                        }
+                                        local v351 = {}
+                                        local v352 = {
+                                            name = "HWID :",
+                                            value = game:GetService("RbxAnalyticsService"):GetClientId(),
+                                            inline = true
+                                        }
+                                        local v353 = {
+                                            name = "Player Username :",
+                                            value = game:GetService("Players").LocalPlayer.Name,
+                                            inline = true
+                                        }
+                                        local v354 = {
+                                            name = "Player DisplayName :",
+                                            value = game:GetService("Players").LocalPlayer.DisplayName,
+                                            inline = true
+                                        }
+                                        local v355 = {
+                                            name = "Player UserId :",
+                                            value = game:GetService("Players").LocalPlayer.UserId,
+                                            inline = true
+                                        }
+                                        local v356 = {
+                                            name = "Player Account Age :",
+                                            value = game:GetService("Players").LocalPlayer.AccountAge,
+                                            inline = true
+                                        }
+                                        local v357 = {
+                                            name = "Executor :",
+                                            value = vu1,
+                                            inline = true
+                                        }
+                                        local v358 = {
+                                            name = "Using Universal In :"
+                                        }
+                                        local v359 = vu245
+                                        if v359 then
+                                            v359 = vu245.Name
+                                        end
+                                        v358.value = v359
+                                        v358.inline = true
+                                        __set_list(v351, 1, {
+                                            v352,
+                                            v353,
+                                            v354,
+                                            v355,
+                                            v356,
+                                            v357,
+                                            v358,
+                                            {
+                                                name = "Device :",
+                                                value = vu23(),
+                                                inline = true
+                                            },
+                                            {
+                                                name = "PandaAuth HWID :",
+                                                value = vu25(),
+                                                inline = true
+                                            }
+                                        })
+                                        v350.fields = v351
+                                        __set_list(v349, 1, {
+                                            v350
+                                        })
+                                        v348.embeds = v349
+                                        local v360 = game:GetService("HttpService"):JSONEncode(v348);
+                                        (http_request or request or (HttpPost or syn.request))({
+                                            Url = v346,
+                                            Body = v360,
+                                            Method = "POST",
+                                            Headers = v347
+                                        })
+                                    end
+                                    vu5:Destroy()
+                                    if vu33() ~= false then
+                                        print("User Is Blacklisted")
+                                    else
+                                        local function vu364(p361)
+                                            local v362 = 0
+                                            for v363 = 1, # p361 do
+                                                v362 = (v362 + string.byte(p361, v363) * v363) % 4294967296
+                                            end
+                                            return tostring(v362)
+                                        end
+                                        local v365 = tostring(math.random(100000, 999999)) .. tostring(math.random(100000, 999999))
+                                        local v366 = vu364(v365)
+                                        local vu367 = game:GetService("Players").LocalPlayer
+                                        local v368 = {
+                                            KeySystem = true,
+                                            Premium = true,
+                                            Test = v366
+                                        }
+                                        local function vu370(p369)
+                                            return vu364(tostring(p369.KeySystem) .. tostring(p369.Premium) .. tostring(p369.Test))
+                                        end
+                                        local vu371 = vu370(v368)
+                                        local function vu373(p372)
+                                            vu367:Kick("Detected modification to MikeyHub Data: " .. p372)
+                                        end
+                                        local function v375()
+                                            while true do
+                                                local v374 = vu370(getgenv().CollectMikeyHubData)
+                                                if v374 ~= vu371 then
+                                                    print("Initial Hash:", vu371)
+                                                    print("Current Hash:", v374)
+                                                    vu373("Hash mismatch")
+                                                end
+                                                wait(1)
+                                            end
+                                        end
+                                        local function v379(p376)
+                                            local v378 = {
+                                                __index = p376,
+                                                __newindex = function(_, p377, _)
+                                                    vu373("Attempted direct modification of " .. tostring(p377))
+                                                    error("Attempt to modify table", 2)
+                                                end,
+                                                __metatable = false,
+                                                __gc = function()
+                                                    vu373("Garbage collection detected")
+                                                end
+                                            }
+                                            return setmetatable({}, v378)
+                                        end
+                                        getgenv().CollectMikeyHubData = v379(v368)
+                                        spawn(v375)
+                                        getgenv().LoaderKey = v365
+                                        vu5:Destroy()
+                                        loadstring(game:HttpGet("通用"))()
+                                    end
+                                end
+                            },
+                            {
+                                Title = "No",
+                                Callback = function()
+                                end
+                            }
+                        }
+                    })
+                end
+            else
+                vu8:Dialog({
+                    Title = "SupportedGames URL Error",
+                    Content = vu244 .. "\nPlease Report This In MikeyHub Server",
+                    Buttons = {
+                        {
+                            Title = "Copy Error",
+                            Callback = function()
+                                setclipboard(tostring(vu244))
+                            end
+                        },
+                        {
+                            Title = "Ok",
+                            Callback = function()
+                            end
+                        }
+                    }
+                })
+                print("[ MikeyHub ]: " .. vu244)
+            end
+        end
+    end
+})
+v34.Premium:AddSection("HWID Whitelister")
+v34.Premium:AddParagraph({
+    Title = "Whitelist system is currently being worked on."
+})
+v6:SetLibrary(vu5)
+v6:BuildConfigSection(v34.SettingsInfo)
+vu8:SelectTab(1)
+v6:LoadAutoloadConfig()
