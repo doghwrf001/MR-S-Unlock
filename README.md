@@ -11,9 +11,8 @@
 
 • HInfinite Team  | Official Website: no
 
-*Important Warning: Do not send us any spam emails, irrelevant messages, or misuse communication channels (including but not limited to repetitive inquiries, advertisements, unrelated requests, etc.). Violators will be permanently blacklisted and have all service privileges terminated.
-Please keep communication efficient and professional. 
-* Thank you for your cooperation! *
+＊ Important Warning: Do not send us any spam emails, irrelevant messages, or misuse communication channels (including but not limited to repetitive inquiries, advertisements, unrelated requests, etc.). Violators will be permanently blacklisted and have all service privileges terminated.
+* Please keep communication efficient and professional. Thank you for！
 
 
 ----------------------------------
@@ -32,5 +31,5 @@ Please keep communication efficient and professional.
 
 • H无限团队 | 官网：无
 
-* 重要警告：请勿向我们发送任何垃圾邮件、无关信息或滥用通信渠道（包括但不限于重复提问、广告、无关请求等）。违规者将被永久列入黑名单并终止所有服务权限。
-* 请保持沟通高效、专业。谢谢合作！ *
+＊ 重要警告：请勿向我们发送任何垃圾邮件、无关信息或滥用通信渠道（包括但不限于重复提问、广告、无关请求等）。违规者将被永久列入黑名单并终止所有服务权限。
+* 请保持沟通高效、专业。谢谢！
