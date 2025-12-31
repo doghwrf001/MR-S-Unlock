@@ -1,4 +1,4 @@
--- 成品代码/Finished code: loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/安脚本%5BMR-S移除群组验证%5D.lua"))()
+-- 成品代码/Finished code: loadstring(game:HttpGet("https://raw.githubusercontent.com/doghwrf001/MR-S-Unlock/refs/heads/Cracked-Projects/An%20script.lua"))()
 -- CN [[ MR-S团队破解｜破解时间:2026-1-1｜MR-S官网:http://qins.mc.hi.cn/MR-S |禁倒卖 ]]
 -- EN [[ MR-S Team Crack｜Crack Date: 2026-1-1｜MR-S Official Website: http://qins.mc.hi.cn/MR-S | No Resale ]]
 
