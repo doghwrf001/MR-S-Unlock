@@ -1,6 +1,16 @@
--- 开源
--- 无法直接使用，自行还原！
--- by HG7399
+-- CN
+-- 开源by：@HG7399 [HexaGuard]
+-- https://shoplnk.me/HGteam
+-- 功能效果没测试过,自行测试,如有损坏自行修复！
+-- 全源开源，应该没有人闲的没事拿这个圈钱吧？
+-- 最后：请标明来源，谢谢！
+
+-- EN
+-- Open Source by: @HG7399 [HexaGuard]
+-- https://shoplnk.me/HGteam
+-- Functionality hasn't been tested; test it yourself and fix any issues if damaged!
+-- Fully open-source; hopefully no one would bother monetizing this, right?
+-- Lastly: Please credit the source, thank you!
 
 
 local Env = getfenv()
@@ -9249,5 +9259,6 @@ local Spawned = task.delay(5, function()
         end);
 
     end);
+
 
 end);
