@@ -1,4 +1,18 @@
--- ts file was generated at discord.gg/25ms
+-- CN
+-- 开源by：MR-S
+-- http://qins.mc.hi.cn/MR-S
+-- 不知名脚本,闲的没事破的玩
+-- 功能效果没测试过,自行测试,如有损坏自行修复！
+-- 全源开源，应该没有人闲的没事拿这个圈钱吧？
+-- 最后：请标明来源，谢谢！
+
+-- EN
+-- Open Source by: MR-S
+-- http://qins.mc.hi.cn/MR-S
+-- Unknown script, cracked for fun during free time
+-- Functionality hasn't been tested; test it yourself and fix any issues if damaged!
+-- Fully open-source; hopefully no one would bother monetizing this, right?
+-- Lastly: Please credit the source, thank you!
 
 
 local vu1 = Instance.new('ScreenGui', game:GetService('CoreGui'))
