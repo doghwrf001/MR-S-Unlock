@@ -1,4 +1,28 @@
+-- CN
+-- 开源by：MR-S
+-- http://qins.mc.hi.cn/MR-S
+-- 功能效果没测试过,自行测试,如有损坏自行修复！
+-- 全源开源，应该没有人闲的没事拿这个圈钱吧？
+-- 最后：请标明来源，谢谢！
 
+-- EN
+-- Open Source by: MR-S
+-- http://qins.mc.hi.cn/MR-S
+-- Functionality hasn't been tested; test it yourself and fix any issues if damaged!
+-- Fully open-source; hopefully no one would bother monetizing this, right?
+-- Lastly: Please credit the source, thank you!
+
+--[[
+
+  ███╗   ███╗██████╗              ███████╗    ████████╗███████╗ █████╗ ███╗   ███╗
+  ████╗ ████║██╔══██╗             ██╔════╝    ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+  ██╔████╔██║██████╔╝  ███████    ███████╗       ██║   █████╗  ███████║██╔████╔██║
+  ██║╚██╔╝██║██╔══██╗             ╚════██║       ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
+  ██║ ╚═╝ ██║██║  ██║             ███████║       ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+  ╚═╝     ╚═╝╚═╝  ╚═╝             ╚══════╝       ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
+
+                    by MR-S Team | http://qins.mc.hi.cn/MR-S
+]]--
 
 
 
