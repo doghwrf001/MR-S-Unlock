@@ -1,13 +1,29 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+-- CN
+-- 开源by：MR-S
+-- http://qins.mc.hi.cn/MR-S
+-- 功能效果没测试过,自行测试,如有损坏自行修复！
+-- 全源开源，应该没有人闲的没事拿这个圈钱吧？
+-- 最后：请标明来源，谢谢！
 
+-- EN
+-- Open Source by: MR-S
+-- http://qins.mc.hi.cn/MR-S
+-- Functionality hasn't been tested; test it yourself and fix any issues if damaged!
+-- Fully open-source; hopefully no one would bother monetizing this, right?
+-- Lastly: Please credit the source, thank you!
+
+--[[
+
+  ███╗   ███╗██████╗              ███████╗    ████████╗███████╗ █████╗ ███╗   ███╗
+  ████╗ ████║██╔══██╗             ██╔════╝    ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+  ██╔████╔██║██████╔╝  ███████    ███████╗       ██║   █████╗  ███████║██╔████╔██║
+  ██║╚██╔╝██║██╔══██╗             ╚════██║       ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
+  ██║ ╚═╝ ██║██║  ██║             ███████║       ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+  ╚═╝     ╚═╝╚═╝  ╚═╝             ╚══════╝       ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
+
+                    by MR-S Team | http://qins.mc.hi.cn/MR-S
 ]]--
+
 
 repeat
 	task.wait();
@@ -2266,4 +2282,5 @@ LocalPlayerSection:Button("光影浅", function()
 end);
 LocalPlayerSection:Button("光影深", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))();
+
 end);
