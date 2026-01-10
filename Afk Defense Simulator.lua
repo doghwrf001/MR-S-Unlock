@@ -1,4 +1,4 @@
--- 成品代码/Finished code: loadstring(game:HttpGet(" "))()
+-- 成品代码/Finished code: loadstring(game:HttpGet("https://github.com/doghwrf001/MR-S-Unlock/raw/refs/heads/Cracked-Projects/Afk%20Defense%20Simulator.lua"))()
 -- key:no
 -- CN [[ MR-S团队破解｜破解时间:2026-1-11｜MR-S官网:http://qins.mc.hi.cn/MR-S |禁倒卖 ]]
 -- EN [[ MR-S Team Crack｜Crack Date: 2026-1-11｜MR-S Official Website: http://qins.mc.hi.cn/MR-S | No Resale ]]
@@ -1725,3 +1725,4 @@ TDS:Upgrade(38)
 TDS:Upgrade(38)
 
 TDS:Upgrade(38)
+
