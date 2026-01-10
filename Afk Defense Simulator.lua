@@ -1,3 +1,11 @@
+-- 成品代码/Finished code: loadstring(game:HttpGet(" "))()
+-- key:no
+-- CN [[ MR-S团队破解｜破解时间:2026-1-11｜MR-S官网:http://qins.mc.hi.cn/MR-S |禁倒卖 ]]
+-- EN [[ MR-S Team Crack｜Crack Date: 2026-1-11｜MR-S Official Website: http://qins.mc.hi.cn/MR-S | No Resale ]]
+
+
+
+
 -- [[ INITIALIZE LIBRARY ]]
 local TDS = (function()
     if not game:IsLoaded() then game.Loaded:Wait() end
@@ -1715,4 +1723,5 @@ TDS:Upgrade(38)
 TDS:Upgrade(38)
 TDS:Upgrade(38)
 TDS:Upgrade(38)
+
 TDS:Upgrade(38)
