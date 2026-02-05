@@ -3,7 +3,7 @@
 
 • StarryRing Team  | Official Website: no
 
-• MR-S Team  | Official Website: https://qins.mc.hi.cn/MR-S
+• MR-S Team  | Official Website: www.mr-s.us.ci
 
 • HexaGuard Team  | Official Website: https://shoplnk.me/HGteam
 
@@ -23,7 +23,7 @@
 
 • StarryRing团队 ｜ 官网：无
 
-• MR-S团队 | 官网：https://qins.mc.hi.cn/MR-S
+• MR-S团队 | 官网：www.mr-s.us.ci
 
 • HexaGuard团队 | 官网：https://shoplnk.me/HGteam
 
