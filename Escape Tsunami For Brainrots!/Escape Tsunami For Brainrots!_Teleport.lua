@@ -1,16 +1,22 @@
----关注b站UID:1531514159
----一群1035184654
----二群2168053189（聊天群）
----十九群1064447273（五百人群）
----二十一群178021813（五百人群）
----二十二群336225224（五百人群）
----二十三群218012845（五百人群）
----二十四群1035646571（五百人群）
----二十五群1071017763（五百人群）
----二十六群820782679（五百人群）
----二十七群1067211151（五百人群）
----Kenny脚本群1019547871（五百人群）
----sp源码分享协会727992470
+--[[
+
+  ███╗   ███╗██████╗              ███████╗    ████████╗███████╗ █████╗ ███╗   ███╗
+  ████╗ ████║██╔══██╗             ██╔════╝    ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+  ██╔████╔██║██████╔╝  ███████    ███████╗       ██║   █████╗  ███████║██╔████╔██║
+  ██║╚██╔╝██║██╔══██╗             ╚════██║       ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
+  ██║ ╚═╝ ██║██║  ██║             ███████║       ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+  ╚═╝     ╚═╝╚═╝  ╚═╝             ╚══════╝       ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
+
+                    by MR-S Team | www.mr-s.us.ci
+]]--
+
+-- Open-source By：MR
+-- Due to the open-source nature, you'll have to handle any issues that arise from now on on your own!
+-- 🚫Any money scamming is strictly prohibited!
+-- ⚠️All open-source projects of the MR-S team use the AGPL3.0 open-source license. Please comply with the license terms!
+-- Finally: Please credit the source, thanks!
+
+
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
