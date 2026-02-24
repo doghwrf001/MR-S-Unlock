@@ -17,7 +17,7 @@
 -- Finally: Please credit the source, thanks!
 
 
-local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bimoraa/Euphoria/refs/heads/main/MacUI/main.luau"))()
+local MacLib = loadstring(game:HttpGet("https://github.com/doghwrf001/111/raw/refs/heads/main/MalibUi.lua"))()
 
 local Window = MacLib:Window({
     Title = "Noxius Hub",
