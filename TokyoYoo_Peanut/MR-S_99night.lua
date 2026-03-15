@@ -1,4 +1,4 @@
--- ts file was generated at discord.gg/25ms
+-- The whitelist (key system) has not been removed. Please resolve it yourself.
 
 local u1 = 'https://getkey1-production.up.railway.app/check?key='
 local u2 = 'https://getkey1-production.up.railway.app/'
