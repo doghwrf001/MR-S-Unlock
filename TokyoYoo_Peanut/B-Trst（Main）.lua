@@ -1,3 +1,4 @@
+-- This file corresponds to the obfuscated script file uploaded by the script author using their GitHub account, before it was cracked (can trace back to the GitHub account used by the script author).
 local place = game.PlaceId
 local creator = game.CreatorId
 
